@@ -1,0 +1,283 @@
+ScreenManagement:
+    MainScreen:
+    MapScreen:
+    PrayerRequests:
+
+
+
+<BackgroundColor@Widget>
+    background_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<MainScreen>:
+    name: "main"
+
+    canvas.before:
+        Color:
+            rgba: 0.58, 0.84, 0.64, 1
+        Rectangle:
+            # self here refers to the widget i.e BoxLayout
+            pos: self.pos
+            size: self.size
+
+
+    Image:
+        source: "servantlogo.jpeg"
+        pos_hint: {"top":1.20, "right":1}
+
+    Button:
+        on_release: app.root.current = "map"
+        text: "Go To Map"
+        size_hint: 0.3,0.1
+        font_size: 50
+        pos_hint: {"top":0.4, "right":0.65}
+
+    Button:
+        on_release: app.root.current = "prayers"
+        text: "Make a Prayer Request"
+        size_hint: 0.3,0.1
+        font_size: 40
+        pos_hint: {"x":0.35, "y":0.18}
+
+<PrayerRequests>
+    name: "prayers"
+
+    canvas.before:
+        Color:
+            rgba: 0.58, 0.84, 0.64, 1
+        Rectangle:
+            # self here refers to the widget i.e BoxLayout
+            pos: self.pos
+            size: self.size
+
+
+<MapScreen>:
+    name: "map"
+    id: map
+
+    canvas.before:
+        Color:
+            rgba: 0.58, 0.84, 0.64, 1
+        Rectangle:
+            # self here refers to the widget i.e BoxLayout
+            pos: self.pos
+            size: self.size
+
+
+    FloatLayout:
+
+
+
+        Label:
+            text: "Worship/Event"
+            pos_hint: {"x":-0.42, "y":-0.13}
+            font_size: 25
+            outline_color: 0,0,0
+            outline_width: 2
+
+        Label:
+            text: "Adult Education"
+            pos_hint: {"x":-0.26, "y":-0.13}
+            font_size: 25
+            outline_color: 0,0,0
+            outline_width: 2
+
+        Label:
+            text: "Next Gen Education"
+            pos_hint: {"x":0.06, "y":-0.13}
+            font_size: 25
+            outline_color: 0,0,0
+            outline_width: 2
+
+        Label:
+            text: "Administrative"
+            pos_hint: {"x":-0.10, "y":-0.13}
+            font_size: 25
+            outline_color: 0,0,0
+            outline_width: 2
+
+        Label:
+            text: "Other"
+            pos_hint: {"x":0.22, "y":-0.13}
+            font_size: 25
+            outline_color: 0,0,0
+            outline_width: 2
+
+
+
+
+        Image:
+            source: "Upperlevel1.JPG"
+            size_hint: 0.50,0.60
+            pos_hint: {"top":1, "left":1}
+
+        Image:
+            source: "LowerLevel.jpg"
+            size_hint: 0.5,0.60
+            pos_hint: {"top":1, "right":1.025}
+
+        Button:
+            text: "Back"
+            on_press: app.root.current = "main"
+            font_size: 50
+            size_hint: 0.16,0.08
+            pos_hint: {"right":1, "bottom":1}
+
+        Button:
+            text: "Main Sanctuary"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0, "y":0.24}
+            on_press: root.btn_sanctuary()
+            font_size: 25
+
+        Button:
+            text: "Centrum"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0, "y":0.16}
+            on_press: root.btn_centrum()
+            font_size: 25
+
+        Button:
+            text: "Community Hall"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0, "y":0.08}
+            on_press: root.btn_comhall()
+            font_size: 25
+
+        Button:
+            text: "Administrative Offices"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.32, "y":0.24}
+            on_press: root.btn_adminoffice()
+            font_size: 25
+
+        Button:
+            text: "Youth Center"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.48, "y":0}
+            on_press: root.btn_youth()
+            font_size: 25
+
+        Button:
+            text: "South Offices"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.32, "y":0.16}
+            on_press: root.btn_southoffice()
+            font_size: 25
+
+        Button:
+            text: "Choir Room"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.16, "y":0.24}
+            on_press: root.btn_choirroom()
+            font_size: 25
+
+        Button:
+            text: "Chapel of the Cross"
+            size_hint: 0.16,0.08
+            pos_hint: {"left":1, "bottom":1}
+            on_press: root.btn_chapel()
+            font_size: 25
+
+        Button:
+            text: "South Adult Classrooms 1-6"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.16, "y":0.08}
+            on_press: root.btn_southadult()
+            font_size: 18
+
+        Button:
+            text: "North Adult Classrooms 1-12"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.16, "y":0.16}
+            on_press: root.btn_northadult()
+            font_size: 18
+
+        Button:
+            text: "Library"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.16, "y":0}
+            on_press: root.btn_library()
+            font_size: 25
+
+        Button:
+            text: "South Conference Center"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.32, "y":0.08}
+            on_press: root.btn_southconf()
+            font_size: 20
+
+        Button:
+            text: "Care Center"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.32, "y":0}
+            on_press: root.btn_carecenter()
+            font_size: 25
+
+        Button:
+            text: "Child Check In"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.48, "y":0.08}
+            on_press: root.btn_checkin()
+            font_size: 25
+
+
+        Button:
+            text: "Warm World School"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.48, "y":0.16}
+            on_press: root.btn_warmworld()
+            font_size: 25
+
+        Button:
+            text: "Starbright CDO"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.48, "y":0.24}
+            on_press: root.btn_starbright()
+            font_size: 25
+
+        Button:
+            text: "Coffee Shop"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.64, "y":0}
+            on_press: root.btn_coffee()
+            font_size: 25
+
+        Button:
+            text: "Restrooms"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.64, "y":0.24}
+            on_press: root.btn_restrooms()
+            font_size: 25
+
+        Button:
+            text: "Staircases"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.64, "y":0.16}
+            on_press: root.btn_staircases()
+            font_size: 25
+
+        Button:
+            text: "Prayer Room"
+            size_hint: 0.16,0.08
+            pos_hint: {"x":0.64, "y":0.08}
+            on_press: root.btn_prayerroom()
+            font_size: 25
+
+
+
+
+
+
+
+
+
+
+
+
+
